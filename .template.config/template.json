@@ -1,0 +1,272 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Julien Tschappat",
+    "classifications": ["ASCOM"],
+    "name": "ASCOM dotnet new template",
+    "identity": "ASCOM.Device.Template",
+    "groupIdentity": "ASCOM.Device",
+    "shortName": "ascomdevice",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
+    "sourceName": "TEMPLATEDEVICENAME",
+    "preferNameDirectory": true,
+    "guids": [
+        "28D679BA-2AF1-4557-AE15-C528C5BF91E0", //templateAssemblyGuid
+        "3A02C211-FA08-4747-B0BD-4B00EB159297", //templateInterfaceGuid
+        "AD6248B3-3F51-4FFF-B62B-E3E942DD817E", //templateRateGuid
+        "99DB28A6-0132-43BF-91C0-D723124813C8", //templateAxisRatesGuid
+        "49A4CA43-46B2-4D66-B9D3-FBE3ABE13DEB" //templateTrackingRatesGuid
+    ],
+    "symbols": {
+        "authorName": {
+            "type": "parameter",
+            "defaultValue": "Your N. Here",
+            "replaces": "Your N. Here"
+        },
+        "authorEmail": {
+            "type": "parameter",
+            "defaultValue": "your@email.here",
+            "replaces": "your@email.here"
+        },
+
+        "copyrightYear": {
+            "type": "generated",
+            "generator": "now",
+            "parameters": {
+                "format": "yyyy"
+            },
+            "replaces": "$year$"
+        },
+
+        "creationDate": {
+            "type": "generated",
+            "generator": "now",
+            "parameters": {
+                "format": "dd-MMM-yyyy"
+            },
+            "replaces": "dd-mmm-yyyy"
+        },
+
+        "deviceClass": {
+            "type": "parameter",
+            "datatype": "choice",
+            "defaultValue": "Dome",
+            "isRequired": true,
+            "choices": [{
+                    "choice": "Camera",
+                    "description": "Camera"
+                }, {
+                    "choice": "CoverCalibrator",
+                    "description": "CoverCalibrator"
+                }, {
+                    "choice": "Dome",
+                    "description": "Dome"
+                }, {
+                    "choice": "FilterWheel",
+                    "description": "FilterWheel"
+                }, {
+                    "choice": "Focuser",
+                    "description": "Focuser"
+                }, {
+                    "choice": "ObservingConditions",
+                    "description": "ObservingConditions"
+                }, {
+                    "choice": "Rotator",
+                    "description": "Rotator"
+                }, {
+                    "choice": "SafetyMonitor",
+                    "description": "SafetyMonitor"
+                }, {
+                    "choice": "Switch",
+                    "description": "Switch"
+                }, {
+                    "choice": "Telescope",
+                    "description": "Telescope"
+                }, {
+                    "choice": "Video",
+                    "description": "Video"
+                }
+            ],
+            "replaces": "TEMPLATEDEVICECLASS"
+        },
+
+        "interfaceVersionString": {
+            "type": "generated",
+            "generator": "switch",
+            "parameters": {
+                "evaluator": "C++",
+                "datatype": "string",
+                "cases": [{
+                        "condition": "(deviceClass == 'Camera')",
+                        "value": "3"
+                    }, {
+                        "condition": "(deviceClass == 'CoverCalibrator')",
+                        "value": "1"
+                    }, {
+                        "condition": "(deviceClass == 'Dome')",
+                        "value": "2"
+                    }, {
+                        "condition": "(deviceClass == 'FilterWheel')",
+                        "value": "2"
+                    }, {
+                        "condition": "(deviceClass == 'Focuser')",
+                        "value": "3"
+                    }, {
+                        "condition": "(deviceClass == 'ObservingConditions')",
+                        "value": ""
+                    }, {
+                        "condition": "(deviceClass == 'Rotator')",
+                        "value": "3"
+                    }, {
+                        "condition": "(deviceClass == 'SafetyMonitor')",
+                        "value": ""
+                    }, {
+                        "condition": "(deviceClass == 'Switch')",
+                        "value": "2"
+                    }, {
+                        "condition": "(deviceClass == 'Telescope')",
+                        "value": "3"
+                    }, {
+                        "condition": "(deviceClass == 'Video')",
+                        "value": ""
+                    }
+                ]
+            }
+        },
+
+        "defaultInterfaceVersion": {
+            "type": "generated",
+            "generator": "constant",
+            "parameters": {
+                "value": "1"
+            }
+        },
+
+        "interfaceVersion": {
+            "type": "generated",
+            "generator": "coalesce",
+            "parameters": {
+                "sourceVariableName": "interfaceVersionString",
+                "fallbackVariableName": "defaultInterfaceVersion"
+            },
+            "replaces": "TEMPLATEINTERFACEVERSION"
+        },
+
+        "interfaceVersionPrefix": {
+            "type": "generated",
+            "generator": "switch",
+            "parameters": {
+                "evaluator": "C++",
+                "datatype": "string",
+                "cases": [{
+                        "condition": "(interfaceVersionString == '')",
+                        "value": ""
+                    }, {
+                        "condition": "(interfaceVersionString != '')",
+                        "value": "V"
+                    }
+                ]
+            }
+        },
+
+        "deviceInterface": {
+            "type": "generated",
+            "generator": "join",
+            "replaces": "ITEMPLATEDEVICEINTERFACE",
+            "parameters": {
+                "symbols": [{
+                        "type": "const",
+                        "value": "I"
+                    }, {
+                        "type": "ref",
+                        "value": "deviceClass"
+                    }, {
+                        "type": "ref",
+                        "value": "interfaceVersionPrefix"
+                    }, {
+                        "type": "ref",
+                        "value": "interfaceVersionString"
+                    }
+                ],
+                "separator": ""
+            }
+        },
+
+        "isCameraDevice": {
+            "type": "computed",
+            "value": "(deviceClass == 'Camera')"
+        },
+
+        "isCoverCalibratorDevice": {
+            "type": "computed",
+            "value": "(deviceClass == 'CoverCalibrator')"
+        },
+
+        "isDomeDevice": {
+            "type": "computed",
+            "value": "(deviceClass == 'Dome')"
+        },
+
+        "isFilterWheelDevice": {
+            "type": "computed",
+            "value": "(deviceClass == 'FilterWheel')"
+        },
+
+        "isFocuserDevice": {
+            "type": "computed",
+            "value": "(deviceClass == 'Focuser')"
+        },
+
+        "isObservingConditionsDevice": {
+            "type": "computed",
+            "value": "(deviceClass == 'ObservingConditions')"
+        },
+
+        "isRotatorDevice": {
+            "type": "computed",
+            "value": "(deviceClass == 'Rotator')"
+        },
+
+        "isSafetyMonitorDevice": {
+            "type": "computed",
+            "value": "(deviceClass == 'SafetyMonitor')"
+        },
+
+        "isSwitchDevice": {
+            "type": "computed",
+            "value": "(deviceClass == 'Switch')"
+        },
+
+        "isTelescopeDevice": {
+            "type": "computed",
+            "value": "(deviceClass == 'Telescope')"
+        },
+
+        "isVideoDevice": {
+            "type": "computed",
+            "value": "(deviceClass == 'Video')"
+        },
+
+        "keepPlaceHolder": {
+            "type": "generated",
+            "generator": "constant",
+            "datatype": "bool",
+            "parameters": {
+                "value": "false"
+            }
+        }
+    },
+
+    "sources": [{
+            "modifiers": [{
+                    "condition": "(!isTelescopeDevice)",
+                    "exclude": ["Rates.cs"]
+                }, {
+                    "exclude": ["PlaceholderInterface.cs"]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "symbolInfo": {
+      "authorName": {
+        "longName": "authorName",
+        "shortName": "an"
+      },
+      "authorEmail": {
+        "longName": "authorEmail",
+        "shortName": "ae"
+      },
+      "deviceType": {
+        "longName": "deviceType",
+        "shortName": "t"
+      }
+
+      
+    }
+}
