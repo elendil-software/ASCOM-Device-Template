@@ -264,7 +264,12 @@
                     "condition": "(!isTelescopeDevice)",
                     "exclude": ["Rates.cs"]
                 }, {
-                    "exclude": ["PlaceholderInterface.cs"]
+                    "exclude": [
+                        "PlaceholderInterface.cs",
+                        "**/.git/**",
+                        "**/*.nuspec",
+                        "**/.gitignore"
+                    ]
                 }
             ]
         }
