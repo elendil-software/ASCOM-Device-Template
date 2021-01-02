@@ -49,7 +49,7 @@
             "replaces": "dd-mmm-yyyy"
         },
 
-        "deviceClass": {
+        "deviceType": {
             "type": "parameter",
             "datatype": "choice",
             "defaultValue": "Dome",
@@ -99,37 +99,37 @@
                 "evaluator": "C++",
                 "datatype": "string",
                 "cases": [{
-                        "condition": "(deviceClass == 'Camera')",
+                        "condition": "(deviceType == 'Camera')",
                         "value": "3"
                     }, {
-                        "condition": "(deviceClass == 'CoverCalibrator')",
+                        "condition": "(deviceType == 'CoverCalibrator')",
                         "value": "1"
                     }, {
-                        "condition": "(deviceClass == 'Dome')",
+                        "condition": "(deviceType == 'Dome')",
                         "value": "2"
                     }, {
-                        "condition": "(deviceClass == 'FilterWheel')",
+                        "condition": "(deviceType == 'FilterWheel')",
                         "value": "2"
                     }, {
-                        "condition": "(deviceClass == 'Focuser')",
+                        "condition": "(deviceType == 'Focuser')",
                         "value": "3"
                     }, {
-                        "condition": "(deviceClass == 'ObservingConditions')",
+                        "condition": "(deviceType == 'ObservingConditions')",
                         "value": ""
                     }, {
-                        "condition": "(deviceClass == 'Rotator')",
+                        "condition": "(deviceType == 'Rotator')",
                         "value": "3"
                     }, {
-                        "condition": "(deviceClass == 'SafetyMonitor')",
+                        "condition": "(deviceType == 'SafetyMonitor')",
                         "value": ""
                     }, {
-                        "condition": "(deviceClass == 'Switch')",
+                        "condition": "(deviceType == 'Switch')",
                         "value": "2"
                     }, {
-                        "condition": "(deviceClass == 'Telescope')",
+                        "condition": "(deviceType == 'Telescope')",
                         "value": "3"
                     }, {
-                        "condition": "(deviceClass == 'Video')",
+                        "condition": "(deviceType == 'Video')",
                         "value": ""
                     }
                 ]
@@ -181,7 +181,7 @@
                         "value": "I"
                     }, {
                         "type": "ref",
-                        "value": "deviceClass"
+                        "value": "deviceType"
                     }, {
                         "type": "ref",
                         "value": "interfaceVersionPrefix"
@@ -196,57 +196,57 @@
 
         "isCameraDevice": {
             "type": "computed",
-            "value": "(deviceClass == 'Camera')"
+            "value": "(deviceType == 'Camera')"
         },
 
         "isCoverCalibratorDevice": {
             "type": "computed",
-            "value": "(deviceClass == 'CoverCalibrator')"
+            "value": "(deviceType == 'CoverCalibrator')"
         },
 
         "isDomeDevice": {
             "type": "computed",
-            "value": "(deviceClass == 'Dome')"
+            "value": "(deviceType == 'Dome')"
         },
 
         "isFilterWheelDevice": {
             "type": "computed",
-            "value": "(deviceClass == 'FilterWheel')"
+            "value": "(deviceType == 'FilterWheel')"
         },
 
         "isFocuserDevice": {
             "type": "computed",
-            "value": "(deviceClass == 'Focuser')"
+            "value": "(deviceType == 'Focuser')"
         },
 
         "isObservingConditionsDevice": {
             "type": "computed",
-            "value": "(deviceClass == 'ObservingConditions')"
+            "value": "(deviceType == 'ObservingConditions')"
         },
 
         "isRotatorDevice": {
             "type": "computed",
-            "value": "(deviceClass == 'Rotator')"
+            "value": "(deviceType == 'Rotator')"
         },
 
         "isSafetyMonitorDevice": {
             "type": "computed",
-            "value": "(deviceClass == 'SafetyMonitor')"
+            "value": "(deviceType == 'SafetyMonitor')"
         },
 
         "isSwitchDevice": {
             "type": "computed",
-            "value": "(deviceClass == 'Switch')"
+            "value": "(deviceType == 'Switch')"
         },
 
         "isTelescopeDevice": {
             "type": "computed",
-            "value": "(deviceClass == 'Telescope')"
+            "value": "(deviceType == 'Telescope')"
         },
 
         "isVideoDevice": {
             "type": "computed",
-            "value": "(deviceClass == 'Video')"
+            "value": "(deviceType == 'Video')"
         },
 
         "keepPlaceHolder": {
