@@ -6,7 +6,9 @@ The official ASCOM .NET Templates available with the [ASCOM Platform Developer C
 
 This project, allows to create an ASCOM device project with the `dotnet new` command (require the .NET Core/.NET 5 SDK).
 
-More information on dotnet templating : https://github.com/dotnet/templating#info-for-dotnet-new-users
+More information on dotnet templating : 
+- https://github.com/dotnet/templating#info-for-dotnet-new-users
+- https://github.com/dotnet/docs/blob/master/docs/core/tools/custom-templates.md
 
 # Install
 
