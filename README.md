@@ -16,7 +16,7 @@ The installation and the use of the template require the [.NET Core or .NET 5](h
 
 Download or clone the [source code](https://github.com/elendil-software/ASCOM-Device-Template/tree/main).
 
-Open a commad line terminal (cmd or powershell) in the template root directory 
+Open a command line terminal (cmd or powershell) in the template root directory 
 
 Run the command `dotnet new --install ./content/`
 
