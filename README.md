@@ -30,4 +30,6 @@ Execute the command : `dotnet new -i .\ASCOM.Device.Template.0.1.0-beta.1.nupkg`
 
 To create a new driver project, execute the command `dotnet new ascomdevice --name MyDome --deviceType Dome`
 
-For complete help, execute `dotnet new ascomdevice -h`
+where `--name` is the name of the project and `--deviceType` the type of the driver. 
+
+For complete help on the supported driver values and other parameters, execute `dotnet new ascomdevice -h`
